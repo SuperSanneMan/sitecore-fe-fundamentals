@@ -3,32 +3,14 @@ import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-
 
 import { deleteItem, changeItem, getCategories, getItemById, setItem } from "../services/getService";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
-
 function Item() {
-  const classes = useStyles();
   const { id } = useParams();
   const now = `${new Date()}`;
   const [ready, setReady] = useState(false);
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
   const [state, setState] = useState({
     id: "",
     title: "",
@@ -57,17 +39,15 @@ function Item() {
     }
   }, [id]);
 
-  useEffect(() => {
-    if (categories.length === 0) {
-      async function getCategoryData() {
-        var result = await getCategories();
-        setCategories(result);
-      }
-      getCategoryData();
-    }
-  }, [categories.length]);
-
-  // const options = ca
+  // useEffect(() => {
+  //   if (categories.length === 0) {
+  //     async function getCategoryData() {
+  //       var result = await getCategories();
+  //       setCategories(result);
+  //     }
+  //     getCategoryData();
+  //   }
+  // }, [categories.length]);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -110,22 +90,7 @@ function Item() {
         ready && <form onSubmit={submitHandler} noValidate autoComplete="off">
           <TextField name="title"  id="textfield" label="title" variant="outlined" value={ state.title } onChange={changeHandler}  />
           <TextField name="description"  id="textfield" label="description" value={ state.description } variant="outlined" onChange={changeHandler}  />
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Type</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value=""
-              onChange={changeHandler}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
+          <TextField name="type"  id="textfield" label="type" value={ state.type } variant="outlined" onChange={changeHandler}  />
           <TextField name="link"  id="textfield" label="link" variant="outlined" value={ state.link } onChange={changeHandler}  />
           <TextField name="value"  id="textfield" label="value" variant="outlined" value={ state.value } onChange={changeHandler}  />
           <TextField name="sprintId"  id="textfield" label="sprintId" variant="outlined" value={ state.sprintId } onChange={changeHandler}  />

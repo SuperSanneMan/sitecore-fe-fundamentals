@@ -83,7 +83,7 @@ const getCommentsBySprintId = async (sprintId) => await fetchResults(`${comments
 const getByCategory = async (category) => await fetchResults(`${sprintsUrl}?category=${category}`, `Oops... no results found with category id: ${id}`);
 const getCategories = async () => await fetchResults(`${categorieUrl}`, `Oops... no results found with categories`);
 
-const setItem = async () => await postResults(`${itemsUrl}`, `Oops... result is not found`);
+const setItem = async (data) => await postResults(`${itemsUrl}`, data, `Oops... result is not found`);
 const setSprint = async () => await postResults(`${sprintsUrl}`, `Oops... result is not found`);
 
 const changeItem = async (id, data) => await putResults(`${itemsUrl}/${id}`, data, `Oops... change result is not found`);
