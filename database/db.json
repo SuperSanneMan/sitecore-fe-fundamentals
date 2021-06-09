@@ -1,133 +1,91 @@
 {
-    "jobs": [
-      {
-        "id": 11,
-        "category": 1,
-        "name": "Frontend Developer",
-        "company": "Microsoft",
-        "level": "Junior",
-        "requirements": [
-          {
-            "title": "Experience in Javascript and React"
-          },
-          {
-            "title": "Knowledge of CSS"
-          }
-        ],
-        "benefits": [
-  
-          {
-            "title": "Great work environment"
-          },
-          {
-            "title": "Free lunch every day!"
-          },
-          {
-            "title": "Money!"
-          }
-        ],
-        "description": "We are looking for a Frontend Developer!"
-      },
-      {
-        "id": 21,
-        "category": 2,
-        "name": "Sales Manager",
-        "company": "Amazon",
-        "level": "Senior",
-        "requirements": [
-          {
-            "title": "Leadership"
-          },
-          {
-            "title": "Excellent communation skills."
-          }
-        ],
-        "benefits": [
-  
-          {
-            "title": "30 days off."
-          },
-          {
-            "title": "Office near the station."
-          },
-          {
-            "title": "Development budget available."
-          },
-          {
-            "title": "Free laptop of your choice."
-          }
-        ],
-        "description": "Are you the retail manager we are looking for?"
-      },
-      {
-        "id": 22,
-        "category": 2,
-        "name": "Accountmanager",
-        "company": "Nike",
-        "level": "Junior",
-        "requirements": [
-          {
-            "title": "Flexible"
-          },
-          {
-            "title": "Ambitious and eager"
-          },
-          {
-            "title": "Willing to learn sales"
-          }
-        ],
-        "benefits": [
-  
-          {
-            "title": "Bonus if you reach the targets"
-          },
-          {
-            "title": "Company car."
-          },
-          {
-            "title": "Great friday after work dinner"
-          }
-        ],
-        "description": "We are looking for ambitous sales professionals!"
-      },
-      {
-        "id": 31,
-        "category": 3,
-        "name": "Pilot",
-        "company": "RyanAir",
-        "level": "medior",
-        "requirements": [
-          {
-            "title": "Good sight"
-          },
-          {
-            "title": "Experience with Airbus planes."
-          }
-        ],
-        "benefits": [
-  
-          {
-            "title": "Flying the world."
-          },
-          {
-            "title": "Great salary"
-          }
-        ],
-        "description": "Experience pilot? Apply now!"
-      }
-    ],
-    "categories": [
-      {
-        "id": 1,
-        "name": "tech"
-      },
-      {
-        "id": 2,
-        "name": "retail"
-      },
-      {
-        "id": 3,
-        "name": "travel"
-      }
-    ]
-  }
+  "settings": {
+    "user": "Sanne Somers",
+    "sprint": {
+      "duration": 14
+    }
+  },
+  "sprints": [
+    {
+      "id": 1,
+      "startDate": "2017-05-24T10:30",
+      "endDate": "2017-05-24T10:30",
+      "createDate": "2017-05-24T10:30",
+      "upDate": "",
+      "title": "",
+      "description": "Sprint 1",
+      "goal": "",
+      "type": "",
+      "link": "",
+      "duration": 14
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "startDate": "2021-05-11T00:00:00.000Z",
+      "endDate": "2021-05-24T00:00:00.000Z",
+      "createDate": "2021-05-08T00:00:00.000Z",
+      "upDate": "",
+      "title": "Titel van item 1 faf",
+      "description": "Item 1",
+      "type": "",
+      "link": "",
+      "value": "",
+      "sprintId": 1
+    },
+    {
+      "id": 2,
+      "startDate": "2021-04-27T00:00:00.000Z",
+      "endDate": "2021-05-10T00:00:00.000Z",
+      "createDate": "2021-05-08T00:00:00.000Z",
+      "upDate": "",
+      "title": "Titel van item 2",
+      "description": "Item 2",
+      "type": "",
+      "link": "",
+      "value": "",
+      "sprintId": 1
+    },
+    {
+      "id": 3,
+      "startDate": "2021-05-11T00:00:00.000Z",
+      "endDate": "2021-05-24T00:00:00.000Z",
+      "createDate": "2021-05-08T00:00:00.000Z",
+      "upDate": "",
+      "title": "Titel van item 3",
+      "description": "Item 3",
+      "type": "",
+      "link": "",
+      "value": "",
+      "sprintId": 1
+    },
+    {
+      "id": 30,
+      "title": "Titel van item 30",
+      "description": "",
+      "type": "",
+      "link": "",
+      "value": "",
+      "sprintId": 1,
+      "startDate": "Mon Jun 07 2021 20:47:20 GMT+0200 (Midden-Europese zomertijd)",
+      "endDate": "",
+      "createDate": "Mon Jun 07 2021 20:47:20 GMT+0200 (Midden-Europese zomertijd)",
+      "upDate": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Taak"
+    },
+    {
+      "id": 2,
+      "name": "Vergadering"
+    },
+    {
+      "id": 3,
+      "name": "Overig"
+    }
+  ]
+}

@@ -1,11 +1,46 @@
 import { useState, useEffect } from "react";
+import Button from "@material-ui/core/Button";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import { getAll } from "./services/getService";
 import "./App.css";
 
+import Navigation from "./components/Navigation";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Dashboard from "./pages/Dashboard";
+import Item from "./pages/Item";
+import View from "./pages/View";
+import Sprint from "./pages/Sprint";
+import ThemeContextProvider from './contexts/ThemeContext';
+
+const routes = {
+  home: "/",
+  about: "/about",
+  dashboard: "/dashboard",
+  createItem: "/create-item",
+  viewItem: "/view-item/:id",
+  editItem: "/edit-item/:id",
+  createSprint: "/create-sprint",
+};
+
 function App() {
-  
   const [data, setData] = useState([]);
-  
+  const {
+    home,
+    about,
+    dashboard,
+    createItem,
+    viewItem,
+    editItem,
+    createSprint,
+  } = routes;
+
   useEffect(() => {
     async function getData() {
       var result = await getAll();
@@ -16,15 +51,34 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>Jobify</h1>
-        <pre>Find your dream job.</pre>
-      </header>
-      <div style={{ margin: "0 auto", width: "50%", backgroundColor: "lightblue" }}>
-        <pre style={{ textAlign: "initial" }}>
-          {JSON.stringify(data, null, "\t")}
-        </pre>
-      </div>
+      <ThemeContextProvider>
+        <Router>
+          <Navigation routes={routes} />
+          <Switch>
+            <Route exact path={home}>
+              <Home />
+            </Route>
+            <Route path={about}>
+              <About />
+            </Route>
+            <Route path={dashboard}>
+              <Dashboard />
+            </Route>
+            <Route path={viewItem}>
+              <View />
+            </Route>
+            <Route path={createItem}>
+              <Item />
+            </Route>
+            <Route path={editItem}>
+              <Item />
+            </Route>          
+            <Route path={createSprint}>
+              <Sprint />
+            </Route>          
+          </Switch>        
+        </Router>
+      </ThemeContextProvider>
     </div>
   );
 }
