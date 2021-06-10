@@ -55,9 +55,9 @@ function Navigation({ routes }) {
             Personal Sprint Assistant
           </Typography>
           <ToggleTheme />
-          <Button component={Link} to={home} variant="contained" color="primary">Home</Button>
-          <Button component={Link} to={about} variant="contained" color="primary">About</Button>
-          <Button component={Link} to={dashboard} variant="contained" color="primary">Dashboard</Button>
+          <Button component={Link} to={home} variant="contained" color="secondary">Home</Button>
+          <Button component={Link} to={about} variant="contained" color="secondary">About</Button>
+          <Button component={Link} to={dashboard} variant="contained" color="secondary">Dashboard</Button>
           <div>
             <Menu
               id="menu-appbar"

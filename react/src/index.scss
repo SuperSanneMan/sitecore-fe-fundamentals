@@ -118,13 +118,47 @@ code {
 	}
 }
 
-.darkmode {
-	background: #333;
+.footer {
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  background-color: #3f51b5;
 
-	h1, h2, p {
-		color: #ddd;
-	}
+  p {
+    padding: 10px 80px;
+  }
 }
+
+.home,
+.item-view {
+  min-height: 700px;
+  width: 100%;
+  padding: 20px 0px 120px;
+  background: #EEE;
+
+  &.darkmode {
+    background: #333;
+  
+    h1, h2, h3, p {
+      color: #ddd;
+    }
+  }
+}
+
+.sprint-info {
+  margin: "0 auto";
+  width: "100%";
+}
+
+.form-view {
+  width: 800px;
+  margin: 0px auto;
+}
+
+
 
 .darkmode .navbar {
 	border-bottom: 2px solid #333;

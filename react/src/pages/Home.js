@@ -62,8 +62,8 @@ function Home() {
   }
 
   return (
-    <div className={!lightTheme ? "darkmode" : ""} style={{ margin: "0 auto", width: "50%", backgroundColor: "lightblue" }}>
-      <h2>Home</h2>
+    <div className={`home ${!lightTheme ? "darkmode" : ""}`}>
+      <div className="inner-home">
         {
           sprints.map((sprint, index) => <Component key={index} data={sprint} button={button} />)
         }  
@@ -94,7 +94,8 @@ function Home() {
           }
           <Button component={Link} to="/create-item" variant="contained" color="primary">Create item</Button>
         </>
-      }     
+      }    
+      </div> 
     </div>
   );
 }

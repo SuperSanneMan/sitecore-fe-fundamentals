@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 import { getAll } from "./services/getService";
@@ -15,7 +13,6 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Item from "./pages/Item";
-import View from "./pages/View";
 import Sprint from "./pages/Sprint";
 import ThemeContextProvider from './contexts/ThemeContext';
 
@@ -65,7 +62,7 @@ function App() {
               <Dashboard />
             </Route>
             <Route path={viewItem}>
-              <View />
+              <Item />
             </Route>
             <Route path={createItem}>
               <Item />
@@ -78,6 +75,7 @@ function App() {
             </Route>          
           </Switch>        
         </Router>
+        <div className="footer"><p>Go Team!</p></div>
       </ThemeContextProvider>
     </div>
   );
