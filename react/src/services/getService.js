@@ -1,11 +1,22 @@
 const sprintsUrl = `${process.env.REACT_APP_API_BASE_URL}/sprints`;
+const settingsUrl = `${process.env.REACT_APP_API_BASE_URL}/settings`;
 const categoriesUrl = `${process.env.REACT_APP_API_BASE_URL}/categories`;
 const itemsUrl = `${process.env.REACT_APP_API_BASE_URL}/items`;
 const itemUrl = `${process.env.REACT_APP_API_BASE_URL}/item`;
 const commentsUrl = `${process.env.REACT_APP_API_BASE_URL}/comments`;
 
-export async function getAll() {
+export async function getAllSprints() {
   const result = await fetch(sprintsUrl).then((response) => {
+    if (response.ok) {
+      return response.json();
+    }
+  });
+
+  return result;
+}
+
+export async function getSettings() {
+  const result = await fetch(settingsUrl).then((response) => {
     if (response.ok) {
       return response.json();
     }

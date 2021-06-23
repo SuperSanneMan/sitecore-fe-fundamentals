@@ -1,20 +1,32 @@
-import React, { createContext, useState } from 'react';
+import React, { useState } from 'react'
+import { ThemeProvider } from '@material-ui/core/styles'
+import getTheme from '../themes/base'
 
-export const ThemeContext = createContext();
+// eslint-disable-next-line no-unused-vars
+export const CustomThemeContext = React.createContext(
+  {
+    currentTheme: 'normal',
+    setTheme: null,
+  },
+)
 
-function ThemeContextProvider(props) {
-  const [lightTheme, setLightTheme] = useState(true);
+const ThemeContext = (props) => {
+  // eslint-disable-next-line react/prop-types
+  const { children } = props;
+  const [themeName, setThemeName] = useState('normal');
 
-  const toggleTheme = () => {
-    setLightTheme(!lightTheme);
+  const theme = getTheme(themeName)
+
+  const contextValue = {
+    currentTheme: themeName,
+    setTheme: setThemeName,
   }
 
-  const { children } = props;
   return (
-      <ThemeContext.Provider value={{ lightTheme, toggleTheme }}>
-      {children}
-      </ThemeContext.Provider>
-  );
+    <CustomThemeContext.Provider value={contextValue}>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </CustomThemeContext.Provider>
+  )
 }
 
-export default ThemeContextProvider;
+export default ThemeContext

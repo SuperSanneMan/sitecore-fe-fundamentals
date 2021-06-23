@@ -1,102 +1,40 @@
-import { useContext, useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { deleteItem, getAll, getItemsBySprintId, getCommentsBySprintId } from "../services/getService";
+import Button from "@material-ui/core/Button";
+import Grid from '@material-ui/core/Grid';
 
-import Component from "../components/Component";
-import { ThemeContext } from '../contexts/ThemeContext';
+import { CustomThemeContext } from '../contexts/ThemeContext';
+import { useItemsData } from "../hooks/useHooks";
+import { date } from "../helpers/helpers";
+import List from '../components/List';
 
-function Home() {
-  const { lightTheme } = useContext(ThemeContext);
-  const [current, setCurrent] = useState(1);
-  const [sprints, setSprints] = useState([]);
-  const [items, setItems] = useState([]);
-  const [comments, setComments] = useState([]);
-  
-  useEffect(() => {
-    async function getData() {
-      var result = await getAll();
-      setSprints(result);
-      var items = await getItemsBySprintId(1);
-      setItems([items]);
-    }
-    getData();
-  }, [current]);
+function Home({ itemsData, deleteButton, saveItem }) {
+  const { currentTheme } = useContext(CustomThemeContext);
+  const isDark = Boolean(currentTheme === 'dark');
+  const [items, setItems] = useState(itemsData);
 
-  const button = {
-    title: "meer informatie",
-    onClick: sprintId => e => {
-      console.log(`meer informatie ${sprintId}`);
-      setCurrent(sprintId);
-      const getItems = async () => {
-        var result = await getItemsBySprintId(sprintId);
-        setItems([result]);
-
-        var result2 = await getCommentsBySprintId(sprintId);
-        setComments([result2]);
-      }
-      getItems();
-    }
-  }
-
-  const close = sprintId => e => {
-    console.log(`sluit informatie ${sprintId}`);
-    if (sprintId === "items") {
-      setItems([]);
-    } else if (sprintId === "comments") {
-      setComments([]);
-    }
-  }  
-
-  const deleteButton = {
-    title: "Delete item",
-    onClick: id => e => {
-      console.log(`1 - Delete item ${id}`);
-      const getItems = async () => {
-        var result = await deleteItem(id);
-        console.log(`2 - Delete item ${id}`, result);
-      }
-      getItems();
-    }
-  }
+  useItemsData(itemsData, setItems);
 
   return (
-    <div className={`home ${!lightTheme ? "darkmode" : ""}`}>
-      <div className="inner-home">
-        {
-          sprints.map((sprint, index) => <Component key={index} data={sprint} button={button} />)
-        }  
-        {/* <Link to="/create-sprint">Create sprint</Link>  */}
+    <div className={`item-view${isDark ? " darkmode" : ""}`}> 
+      <h2>{`Daily Stand Up ${date()}`}</h2>
       {
         items.length > 0 &&
-        <>
-          <h2>{`Personal items sprint ${current}`}</h2>
-          {/* <button onClick={close("items")} title={`Close items`}>Close items</button> */}
-          {
-            
-            items.map((item, index) => {
-              return item.length > 0 && item.map((item, index2) => {
-                return (
-                  <div key={index2}>
-                    
-                    <h3>{ item.title }</h3>
-                    <p>{ item.createDate }</p>
-                    <Button component={Link} to={`/view-item/${item.id}`} variant="contained" color="primary">View item</Button>
-                    <Button component={Link} to={`/edit-item/${item.id}`} variant="contained" color="primary">Edit item</Button>
-                    <Button  onClick={deleteButton.onClick(item.id)} title={`${deleteButton.title}`} variant="contained" color="primary">
-                      Delete item
-                    </Button>
-                </div>
-                );
-              })
-            })
-          }
-          <Button component={Link} to="/create-item" variant="contained" color="primary">Create item</Button>
-        </>
+        <Grid 
+          container
+          spacing={0}
+          direction="column"
+          justify="center"
+        >
+          <h3>Gisteren</h3>
+          <List items={items} variant={"before-today"} deleteButton={deleteButton} saveItem={saveItem} hasForwardOption={true} /> 
+          <h3>Vandaag</h3>
+          <List items={items} variant={"today"} deleteButton={deleteButton} saveItem={saveItem} />        
+        </Grid>
       }    
-      </div> 
-    </div>
+      <Button component={Link} to="/create-item" variant="contained" color="primary">Create item</Button>
+    </div> 
   );
 }
 export default Home;

@@ -8,9 +8,10 @@ import Button from "@material-ui/core/Button";
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Box from '@material-ui/core/Box';
 import Menu from '@material-ui/core/Menu';
 import ToggleTheme from '../components/ToggleTheme';
-import { ThemeContext } from '../contexts/ThemeContext';
+import { CustomThemeContext } from '../contexts/ThemeContext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,13 +26,15 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navigation({ routes }) {
-  const { lightTheme } = useContext(ThemeContext);
+  const { currentTheme } = useContext(CustomThemeContext)
+  const isDark = Boolean(currentTheme === 'dark');
+
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const {
     home,
-    about,
+    retro,
     dashboard,
     createItem
   } = routes;
@@ -45,7 +48,7 @@ function Navigation({ routes }) {
   };  
 
   return (
-    <div className={`${classes.root}${!lightTheme ? " darkmode" : ""}`}>
+    <div className={`${classes.root}${isDark ? " darkmode" : ""}`}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" aria-controls="menu-appbar" onClick={handleMenu}>
@@ -55,9 +58,12 @@ function Navigation({ routes }) {
             Personal Sprint Assistant
           </Typography>
           <ToggleTheme />
-          <Button component={Link} to={home} variant="contained" color="secondary">Home</Button>
-          <Button component={Link} to={about} variant="contained" color="secondary">About</Button>
-          <Button component={Link} to={dashboard} variant="contained" color="secondary">Dashboard</Button>
+          <Box m={1}>
+            <Button component={Link} to={home} variant="contained" color="secondary">Today</Button>
+          </Box>
+          <Box m={1}>
+            <Button component={Link} to={dashboard} variant="contained" color="primary">Dashboard</Button>
+          </Box>
           <div>
             <Menu
               id="menu-appbar"
@@ -75,6 +81,8 @@ function Navigation({ routes }) {
               onClose={handleClose}
             >
               <MenuItem component={Link} to={createItem} onClick={handleClose}>Create item</MenuItem>
+              <MenuItem component={Link} to={dashboard} onClick={handleClose}>Dashboard</MenuItem>
+              <MenuItem component={Link} to={retro} onClick={handleClose}>Retrospective</MenuItem>
             </Menu>
           </div>
         </Toolbar>
