@@ -1,8 +1,19 @@
 {
   "settings": {
     "user": "Sanne Somers",
+    "email": "ssomers@onvz.nl",
+    "azure": {
+      "subscription": "https://dev.azure.com/onvz/ONVZ/",
+      "teams": [
+        "Online",
+        "FBI"
+      ],
+      "taskboard": "_sprints/taskboard/",
+      "workItem": "_workitems/edit/"
+    },
     "sprint": {
-      "duration": 14
+      "duration": 14,
+      "current": 1
     }
   },
   "sprints": [
@@ -12,11 +23,26 @@
       "endDate": "2017-05-24T10:30",
       "createDate": "2017-05-24T10:30",
       "upDate": "",
-      "title": "",
+      "title": "Sprint 1",
       "description": "Sprint 1",
       "goal": "",
       "type": "",
-      "link": "",
+      "link": "Online/ONVZ/2021/Increment%203",
+      "link2": "FBI/ONVZ/2021/Increment%203/Sprint%203-1%20(2%20weeks)",
+      "duration": 14
+    },
+    {
+      "id": 2,
+      "startDate": "2017-05-24T10:30",
+      "endDate": "2017-05-24T10:30",
+      "createDate": "2017-05-24T10:30",
+      "upDate": "",
+      "title": "Sprint 2",
+      "description": "Sprint 2",
+      "goal": "",
+      "type": "",
+      "link": "Online/ONVZ/2021/Increment%203",
+      "link2": "FBI/ONVZ/2021/Increment%203/Sprint%203-2%20(2%20weeks)",
       "duration": 14
     }
   ],
@@ -24,81 +50,143 @@
     {
       "id": 1,
       "startDate": "2021-06-17T22:11",
-      "endDate": "2021-06-22T22:11",
+      "endDate": "2021-06-23T18:00",
       "createDate": "2021-06-17T22:11",
-      "title": "Titel van item 1 faf",
-      "description": "Item 1",
-      "type": "",
+      "title": "Titel is gewijzigd 12",
+      "description": "Item 12",
+      "type": "BE",
       "link": "",
-      "value": "",
+      "value": 4,
+      "finished": false,
       "sprintId": 1,
-      "upDate": "2021-06-09T23:17"
+      "upDate": "2021-06-23T11:00",
+      "satisfied": false
     },
     {
       "id": 2,
       "startDate": "2021-06-17T22:11",
-      "endDate": "2021-06-18T22:11",
+      "endDate": "2021-06-23T18:00",
       "createDate": "2021-06-17T22:11",
-      "upDate": "",
+      "upDate": "2021-06-23T00:55",
       "title": "Titel van item 2",
       "description": "Item 2",
-      "type": "",
-      "link": "",
-      "value": "",
-      "sprintId": 1
+      "type": "OP",
+      "link": 30122,
+      "value": 8,
+      "finished": false,
+      "sprintId": 1,
+      "satisfied": false
     },
     {
       "id": 3,
       "startDate": "2021-06-17T22:11",
-      "endDate": "2021-06-17T22:11",
+      "endDate": "2021-06-23T18:00",
       "createDate": "2021-06-17T22:11",
-      "upDate": "",
+      "upDate": "2021-06-23T10:59",
       "title": "Titel van item 3",
       "description": "Item 3",
-      "type": "",
-      "link": "",
-      "value": "",
-      "sprintId": 1
-    },
-    {
-      "id": 30,
-      "title": "Titel van item 30",
-      "description": "",
-      "type": "",
-      "link": "",
-      "value": "",
+      "type": "BE",
+      "link": 30122,
+      "value": 7,
+      "finished": false,
       "sprintId": 1,
-      "startDate": "2021-06-17T22:11",
-      "endDate": "",
-      "createDate": "2021-06-17T22:11",
-      "upDate": ""
+      "satisfied": true
     },
     {
-      "id": 31,
-      "title": "To do item",
-      "description": "Dit is wat we moeten gaan doen",
-      "type": "1",
-      "link": "https://dev.azure.com/onvz/NBW/_sprints/taskboard/FBI/NBW/2021/2021-Q1/2021.Q1.05?workitem=0",
-      "value": "100",
-      "sprintId": "1",
-      "startDate": "2021-06-09T23:22",
-      "endDate": "2021-06-23T23:24",
-      "createDate": "2021-06-09T23:24",
-      "upDate": "2021-06-09T23:26"
+      "id": 13,
+      "title": "Samenvatting tonen in Easyflow",
+      "description": "Samenvatting tonen in Easyflow",
+      "type": "FE",
+      "link": "21795",
+      "value": 9,
+      "sprintId": 1,
+      "startDate": "2021-06-19T21:01",
+      "endDate": "2021-06-23T18:00",
+      "createDate": "2021-06-19T21:05",
+      "upDate": "2021-06-23T10:59",
+      "finished": false,
+      "satisfied": true
+    },
+    {
+      "id": 14,
+      "title": "saSA",
+      "description": "ASAsa",
+      "type": "FE",
+      "link": "",
+      "value": 4,
+      "sprintId": 2,
+      "startDate": "2021-06-19T23:03",
+      "endDate": "2021-06-20T18:00",
+      "createDate": "2021-06-19T23:04",
+      "upDate": "",
+      "finished": false,
+      "satisfied": null
+    },
+    {
+      "id": 16,
+      "title": "Een degelijke titel",
+      "description": "Een degelijke inhoud",
+      "type": "BE",
+      "link": "30122",
+      "value": "20",
+      "sprintId": 2,
+      "startDate": "2021-06-20T20:11",
+      "endDate": "2021-06-20T18:00",
+      "createDate": "2021-06-20T20:11",
+      "upDate": "2021-06-20T20:57",
+      "satisfied": null
+    },
+    {
+      "id": 17,
+      "title": "Een nieuw item voor vandaag",
+      "description": "Een nieuw item voor vandaag",
+      "type": "BE",
+      "link": "",
+      "value": 8,
+      "sprintId": 1,
+      "startDate": "2021-06-21T11:20",
+      "endDate": "2021-06-23T18:00",
+      "createDate": "2021-06-21T11:20",
+      "upDate": "2021-06-23T00:50",
+      "satisfied": null,
+      "finished": false
+    },
+    {
+      "id": 18,
+      "title": "Dit is een nieuw item voo vandaag",
+      "description": "Dit is een nieuw item voo vandaag",
+      "type": "OP",
+      "link": "",
+      "value": 8,
+      "sprintId": 1,
+      "startDate": "2021-06-21T14:20",
+      "endDate": "2021-06-22T18:00",
+      "createDate": "2021-06-21T14:21",
+      "upDate": "2021-06-23T10:59",
+      "satisfied": true,
+      "finished": false
     }
   ],
   "categories": [
     {
       "id": 1,
-      "name": "Taak"
+      "value": "FE",
+      "label": "Front-End"
     },
     {
       "id": 2,
-      "name": "Vergadering"
+      "value": "BE",
+      "label": "Back-End"
     },
     {
       "id": 3,
-      "name": "Overig"
+      "value": "OP",
+      "label": "Operations"
+    },
+    {
+      "id": 4,
+      "value": "BM",
+      "label": "Build-Master"
     }
   ]
 }

@@ -42,6 +42,8 @@ app.get('/sprints/:id', (req, res) => {
   services.getById(id).then(result => res.send(`${JSON.stringify(result)}`));
 })
 
+app.get('/settings', (req, res) => services.getSettings().then(result => res.send(`${JSON.stringify(result)}`)))
+
 app.get('/categories', (req, res) => services.getCategories().then(result => res.send(`${JSON.stringify(result)}`)))
 app.get('/sprints/category/:id', (req, res) => {
   const id = req.params.id;

@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const baseUrl = process.env.DATABASE_URL;
 const sprintsUrl = `${baseUrl}/sprints`;
+const settingsUrl = `${baseUrl}/settings`;
 const categorieUrl = `${baseUrl}/categories`;
 const itemsUrl = `${baseUrl}/items`;
 const commentsUrl = `${baseUrl}/comments`;
@@ -76,6 +77,7 @@ async function deleteResults(url, message = "") {
 }
 
 const getAll = async () => await fetchResults(sprintsUrl, `Oops... no results found.`);
+const getSettings = async () => await fetchResults(settingsUrl, `Oops... no settings found.`);
 const getById = async (id) => await fetchResults(`${sprintsUrl}/${id}`, `Oops... result with id: ${id} is not found`);
 const getItemById = async (id) => await fetchResults(`${itemsUrl}/${id}`, `Oops... result with id: ${id} is not found`);
 const getItemsBySprintId = async (sprintId) => await fetchResults(`${itemsUrl}?sprintId=${sprintId}`, `Oops... result with id: ${sprintId} is not found`);
@@ -92,6 +94,7 @@ const deleteItem = async (id) => await deleteResults(`${itemsUrl}/${id}`, `Oops.
 
 module.exports = {
   getAll: getAll,
+  getSettings: getSettings,
   getById: getById,
   getItemById: getItemById,
   getItemsBySprintId: getItemsBySprintId,
